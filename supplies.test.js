@@ -22,3 +22,13 @@ test('if we create a specific piece of paper, that paper exists', () => {
     var dunderMifflin60LBS = new supplies.paper;
     expect(dunderMifflin60LBS).toBeDefined();
 });
+
+//Here I am wondering what is the limit of what we can create in the scope of a single test.
+//Is creating a function and a variable to hold that function out of bounds? Do I have to do each one separately
+//for proper TDD?
+test('When the pencil is instructed to write a string of text on a sheet of paper, the paper should reflect the text that was written.', () => {
+    var ticonderoga = new supplies.pencil;
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'She sells sea shells');
+    expect(dunderMifflin60LBS.content).toBe('She sells sea shells');
+})

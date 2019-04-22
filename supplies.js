@@ -1,9 +1,11 @@
 const supplies = {
     pencil: function Pencil() {
-        return true;
+        this.write = (paper, writtenContent) => {
+            paper.content = writtenContent;
+        }
     },
     paper: function Paper() {
-        return true;
+        this.content;
     }
 
 };
