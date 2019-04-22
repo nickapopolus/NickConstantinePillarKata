@@ -116,8 +116,8 @@ test('When the pencil is instructed to erase text from the paper, the last occur
     var ticonderoga = new supplies.pencil(100, 10);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
-    ticonderoga.erase('chuck');
+    ticonderoga.erase(dunderMifflin60LBS, 'chuck');
     ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could       wood?');
-    ticonderoga.erase('chuck');
+    ticonderoga.erase(dunderMifflin60LBS, 'chuck');
     ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck       if a woodchuck could       wood?');
 });

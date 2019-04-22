@@ -45,6 +45,17 @@ const supplies = {
                 this.durability = this.durabilityGrade;
             }
         };
+        this.erase = (paper, deletion) => {
+            //make the blank string that will replace the deleted portion of the string.
+            let blanks = [];
+            for(var i = 0; i < deletion.length; i++){
+                blanks[i] = ' ';
+            }
+            let blankString = blanks.join('');
+            //create a rejex that will match the last instance of the content to be deleted.
+            let lastInstanceRegex = '/(\\b' + deletion + '\\b)(?!.*\\b\\1\\b)/g';
+            paper.content.replace(lastInstanceRegex, blankString);
+        };
     },
     paper: function Paper() {
         this.content;
