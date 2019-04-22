@@ -74,3 +74,12 @@ test('Writing spaces and newlines expends no graphite, therefore "writing" these
     ticonderoga.write(dunderMifflin60LBS, 'Tormund And Brianne \n 4 Ever');
     expect(ticonderoga.durability).toBe(78);
 });
+
+test('Lowercase letters should degrade the pencil point by a value of one, and capital letters should degrade the point by two.', () => {
+    var ticonderoga = new supplies.pencil(4);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'Text');
+    expect(dunderMifflin60LBS.content).toBe('Tex');
+});
+
+
