@@ -72,5 +72,5 @@ test('Writing spaces and newlines expends no graphite, therefore "writing" these
     var ticonderoga = new supplies.pencil(100);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'Tormund And Brianne \n 4 Ever');
-    expected(ticonderoga.durability).toBe(78);
+    expect(ticonderoga.durability).toBe(78);
 });
