@@ -67,3 +67,10 @@ test('After it goes dull, every character it is directed to write will appear as
     expect(dunderMifflin60LBS.content).toBe("TormundAndBrianne4Ev  ");
     expect(ticonderoga.durability).toBe(-2);
 });
+
+test('Writing spaces and newlines expends no graphite, therefore "writing" these characters should not affect the pencil point.', () => {
+    var ticonderoga = new supplies.pencil(100);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'Tormund And Brianne \n 4 Ever');
+    expected(ticonderoga.durability).toBe(78);
+});
