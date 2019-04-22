@@ -35,8 +35,12 @@ const supplies = {
             }
             //subtract the length of the new string from the durability. account for spaces and capitals
             this.durability = this.durability - ((writtenContent.length + capitals) - spaces);
-        },
-            this.durability = durability ? durability : 500;
+        };
+        this.durability = durability ? durability : 500;
+        this.durabilityGrade = durability ? durability : 500;
+        this.sharpen = () => {
+            this.durability = this.durabilityGrade;
+        };
     },
     paper: function Paper() {
         this.content;
