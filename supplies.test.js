@@ -57,29 +57,33 @@ test('The pencil will be able to write only a limited number of characters befor
     var ticonderoga = new supplies.pencil(20);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'TormundGiantsbane');
-    expect(ticonderoga.durability).toBe(3);
+    expect(ticonderoga.durability).toBe(1);
 });
 
 test('After it goes dull, every character it is directed to write will appear as a space', () => {
     var ticonderoga = new supplies.pencil(20);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'TormundAndBrianne4Ever');
-    expect(dunderMifflin60LBS.content).toBe("TormundAndBrianne4Ev  ");
-    expect(ticonderoga.durability).toBe(-2);
+    expect(dunderMifflin60LBS.content).toBe("TormundAndBriann      ");
+    expect(ticonderoga.durability).toBe(-6);
 });
 
 test('Writing spaces and newlines expends no graphite, therefore "writing" these characters should not affect the pencil point.', () => {
     var ticonderoga = new supplies.pencil(100);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'Tormund And Brianne \n 4 Ever');
-    expect(ticonderoga.durability).toBe(78);
+    expect(ticonderoga.durability).toBe(74);
 });
 
 test('Lowercase letters should degrade the pencil point by a value of one, and capital letters should degrade the point by two.', () => {
     var ticonderoga = new supplies.pencil(4);
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'Text');
-    expect(dunderMifflin60LBS.content).toBe('Tex');
+    expect(dunderMifflin60LBS.content).toBe('Tex ');
 });
+
+//^^ For this last test, the feature changed the result of other tests I had written. Is it okay to go through and change
+//the tests to expect what the new values should be as I have done here?
+
 
 

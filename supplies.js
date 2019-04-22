@@ -10,8 +10,15 @@ const supplies = {
                     spaces++;
                 }
             }
-            //if Wear is positive, that is how many characters should be written as spaces.
-            let wear = (writtenContent.length - spaces) - this.durability;
+            //find the number of capital letters and let them count as 2 lowercase.
+            let capitals = 0;
+            for(var i = 0; i < writtenContentCharacters.length; i++){
+                if(writtenContentCharacters[i].match(/[A-Z]/g) ) {
+                    capitals++;
+                }
+            }
+            //if Wear is positive, that is how many characters should be written as spaces. Accomodate # of capitals.
+            let wear = ((writtenContent.length + capitals) - spaces) - this.durability;
             //loop through to change "dull marks" to spaces."
             if(wear > 0){
                 for(var i = 1; i <= wear; i++){
@@ -26,8 +33,8 @@ const supplies = {
             } else {
                 paper.content = paper.content + writtenContent;
             }
-            //subtract the length of the new string from the durability.
-            this.durability = this.durability - (writtenContent.length - spaces);
+            //subtract the length of the new string from the durability. account for spaces and capitals
+            this.durability = this.durability - ((writtenContent.length + capitals) - spaces);
         },
             this.durability = durability ? durability : 500;
     },
