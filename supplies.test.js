@@ -40,3 +40,8 @@ test('Text written by the pencil should always be appended to existing text on t
     ticonderoga.write(dunderMifflin60LBS, ' down by the sea shore');
     expect(dunderMifflin60LBS.content).toBe('She sells sea shells down by the sea shore');
 });
+
+test('When a pencil is created, it can be provided with a value for point durability.', () => {
+    var ticonderoga = new supplies.pencil(20);
+    expect(ticonderoga.durability).toBe(20);
+});
