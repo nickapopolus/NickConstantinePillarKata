@@ -31,4 +31,12 @@ test('When the pencil is instructed to write a string of text on a sheet of pape
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'She sells sea shells');
     expect(dunderMifflin60LBS.content).toBe('She sells sea shells');
-})
+});
+
+test('Text written by the pencil should always be appended to existing text on the paper.', () => {
+    var ticonderoga = new supplies.pencil;
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'She sells sea shells');
+    ticonderoga.write(dunderMifflin60LBS, ' down by the sea shore');
+    expect(dunderMifflin60LBS.content).toBe('She sells sea shells down by the sea shore');
+});
