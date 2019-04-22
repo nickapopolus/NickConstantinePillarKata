@@ -6,6 +6,7 @@ const supplies = {
             } else {
                 paper.content = paper.content + writtenContent;
             }
+            this.durability = this.durability - writtenContent.length;
         },
             this.durability = durability ? durability : 500;
     },
