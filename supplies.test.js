@@ -59,3 +59,10 @@ test('The pencil will be able to write only a limited number of characters befor
     ticonderoga.write(dunderMifflin60LBS, 'TormundGiantsbane');
     expect(ticonderoga.durability).toBe(3);
 });
+
+test('After it goes dull, every character it is directed to write will appear as a space', () => {
+    var ticonderoga = new supplies.pencil(20);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'TormundAndBrianne4Ever');
+    expect(dunderMifflin60LBS.content).toBe("TormundAndBrianne4Ev  ");
+});
