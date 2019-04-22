@@ -1,5 +1,5 @@
 const supplies = {
-    pencil: function Pencil(durability) {
+    pencil: function Pencil(durability, length) {
         this.write = (paper, writtenContent) => {
             //Change the string to an array of characters
             var writtenContentCharacters = writtenContent.split('');
@@ -38,8 +38,10 @@ const supplies = {
         };
         this.durability = durability ? durability : 500;
         this.durabilityGrade = durability ? durability : 500;
+        this.length = length;
         this.sharpen = () => {
             this.durability = this.durabilityGrade;
+            this.length--;
         };
     },
     paper: function Paper() {
