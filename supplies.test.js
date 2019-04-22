@@ -104,12 +104,20 @@ test('The pencil\'s length is reduced by one each time it is sharpened.', () => 
 });
 
 test('When a pencil\'s length is zero, then sharpening it no longer restores its point durabliity', () => {
-    var ticonderoga = new supplies.pencil(10, 3);
+    var ticonderoga = new supplies.pencil(10, 1);
     var dunderMifflin60LBS = new supplies.paper;
-    ticonderoga.sharpen();
-    ticonderoga.sharpen();
     ticonderoga.sharpen();
     ticonderoga.write(dunderMifflin60LBS, 'Lumberjacks');
     ticonderoga.sharpen();
     expect(ticonderoga.durability).toBeLessThan(0);
+});
+
+test('When the pencil is instructed to erase text from the paper, the last occurrence of that text on the paper will be replaced with empty spaces.', () => {
+    var ticonderoga = new supplies.pencil(100, 10);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
+    ticonderoga.erase('chuck');
+    ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could       wood?');
+    ticonderoga.erase('chuck');
+    ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck       if a woodchuck could       wood?');
 });
