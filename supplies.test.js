@@ -6,12 +6,19 @@ test('If we create a pencil, the pencil exists.', () => {
    expect(supplies.pencil).toBeDefined();
 });
 
+//Is it okay to change your test once you refactor your code? The name and type of my function changed, so is
+//it okay to change in the test or am I stuck with it?
 test('if we create a paper, the pencil exists.', () => {
-    expect(supplies.Paper()).toBeDefined();
+    expect(supplies.paper).toBeDefined();
 });
 
 
 test('if we create a specific pencil, that pencil exists', () => {
     var ticonderoga = new supplies.pencil;
     expect(ticonderoga).toBeDefined();
+});
+
+test('if we create a specific piece of paper, that paper exists', () => {
+    var dunderMifflin60LBS = new supplies.paper;
+    expect(dunderMifflin60LBS).toBeDefined();
 });

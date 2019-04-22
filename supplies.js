@@ -2,7 +2,7 @@ const supplies = {
     pencil: function Pencil() {
         return true;
     },
-    Paper: () => {
+    paper: function Paper() {
         return true;
     }
 
