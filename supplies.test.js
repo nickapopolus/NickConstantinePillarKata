@@ -96,3 +96,9 @@ test('When a pencil is sharpened, it regains its initial point durability and ca
     ticonderoga.sharpen();
     expect(ticonderoga.durability).toBe(10);
 });
+
+test('The pencil\'s length is reduced by one each time it is sharpened.', () => {
+    var ticonderoga = new supplies.pencil(10, 3);
+    ticonderoga.sharpen();
+    expect(ticonderoga.length).toBe(2);
+});
