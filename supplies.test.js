@@ -102,3 +102,14 @@ test('The pencil\'s length is reduced by one each time it is sharpened.', () => 
     ticonderoga.sharpen();
     expect(ticonderoga.length).toBe(2);
 });
+
+test('When a pencil\'s length is zero, then sharpening it no longer restores its point durabliity', () => {
+    var ticonderoga = new supplies.pencil(10, 3);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.sharpen();
+    ticonderoga.sharpen();
+    ticonderoga.sharpen();
+    ticonderoga.write(dunderMifflin60LBS, 'Lumberjacks');
+    ticonderoga.sharpen();
+    expect(ticonderoga.durability).toBeLessThan(0);
+});

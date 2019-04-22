@@ -38,10 +38,12 @@ const supplies = {
         };
         this.durability = durability ? durability : 500;
         this.durabilityGrade = durability ? durability : 500;
-        this.length = length;
+        this.length = length ? length : 20;
         this.sharpen = () => {
-            this.durability = this.durabilityGrade;
             this.length--;
+            if(this.length > 0) {
+                this.durability = this.durabilityGrade;
+            }
         };
     },
     paper: function Paper() {
