@@ -86,4 +86,13 @@ test('Lowercase letters should degrade the pencil point by a value of one, and c
 //the tests to expect what the new values should be as I have done here?
 
 
-
+test('When a pencil is sharpened, it regains its initial point durability and can write more characters before it goes dull again.', () => {
+    var ticonderoga = new supplies.pencil(10);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'lumberjacks');
+    ticonderoga.sharpen();
+    ticonderoga.write(dunderMifflin60LBS, 'lumberjacks');
+    expect(dunderMifflin60LBS.content).toBe('lumberjack lumberjack ');
+    ticonderoga.sharpen();
+    expect(ticonderoga.durability).toBe(10);
+});
