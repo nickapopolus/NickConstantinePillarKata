@@ -65,4 +65,5 @@ test('After it goes dull, every character it is directed to write will appear as
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'TormundAndBrianne4Ever');
     expect(dunderMifflin60LBS.content).toBe("TormundAndBrianne4Ev  ");
+    expect(ticonderoga.durability).toBe(-2);
 });
