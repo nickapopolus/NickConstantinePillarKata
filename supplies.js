@@ -1,10 +1,11 @@
 const supplies = {
-    createPencil: () => {
+    pencil: function Pencil() {
         return true;
     },
-    createPaper: () => {
+    Paper: () => {
         return true;
     }
+
 };
 
 module.exports = supplies;
