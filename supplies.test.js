@@ -45,3 +45,17 @@ test('When a pencil is created, it can be provided with a value for point durabi
     var ticonderoga = new supplies.pencil(20);
     expect(ticonderoga.durability).toBe(20);
 });
+
+//At this point, I'm aware that I'm instantiating a pencil in almost every test. I know it's important to refactor to
+//generate at least one pencil and ideally a pencil and a piece of paper before every test, but I've never used a
+//testing library before and when I went over the documentation for a before statement, I couldn't figure it after 10
+//minutes and I thought running the tests and acknowledging I am repeating myself a lot will have to do until
+//I can take a break to dive into the documentation a little more. I also realize using comments to talk to you
+//directly isn't best practice.
+
+test('The pencil will be able to write only a limited number of characters before it goes dull.', () => {
+    var ticonderoga = new supplies.pencil(20);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'TormundGiantsbane');
+    expect(ticonderoga.durability).toBe(3);
+});
