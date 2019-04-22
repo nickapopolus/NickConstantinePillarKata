@@ -6,3 +6,6 @@ test('If we create a pencil, the pencil exists.', () => {
    expect(supplies.createPencil()).toBeDefined();
 });
 
+test('if we create a paper, the pencil exists.', () => {
+    expect(supplies.createPaper()).toBeDefined();
+});
