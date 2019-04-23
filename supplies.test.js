@@ -142,3 +142,12 @@ test('Text should be erased in the opposite order it was written. Once the erase
     ticonderoga.erase(dunderMifflin60LBS, 'Buffalo Bill');
     expect(dunderMifflin60LBS.content).toBe("Buffalo B   ");
 });
+
+test('Once text has been erased from the paper, a pencil may be instructed to write new text over the resulting white space.', () => {
+    var ticonderoga = new supplies.pencil(100, 10, 100);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'An apple a day keeps the doctor away');
+    ticonderoga.erase(dunderMifflin60LBS, 'apple');
+    ticonderoga.replaceSpace(dunderMifflin60LBS, 'onion');
+    expect(dunderMifflin60LBS.content).toBe('An onion a day keeps the doctor away');
+});
