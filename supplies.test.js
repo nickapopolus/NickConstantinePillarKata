@@ -134,3 +134,11 @@ test('All characters except for white space should degrade the eraser by a value
     ticonderoga.erase(dunderMifflin60LBS, 'said');
     expect(ticonderoga.eraserDurability).toBe(296);
 });
+
+test('Text should be erased in the opposite order it was written. Once the eraser durability is zero, the eraser is worn out and can no longer erase.', () => {
+    var ticonderoga = new supplies.pencil(100, 10, 3);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, "Buffalo Bill");
+    ticonderoga.erase(dunderMifflin60LBS, 'Buffalo Bill');
+    expect(dunderMifflin60LBS.content).toBe('Buffalo B   ');
+});
