@@ -126,3 +126,11 @@ test('When a pencil is created, it can be provided with a value for eraser durab
     var ticonderoga = new supplies.pencil(100, 10, 300);
     expect(ticonderoga.eraserDurability).toBe(300);
 });
+
+test('All characters except for white space should degrade the eraser by a value of one', () => {
+    var ticonderoga = new supplies.pencil(100, 10, 300);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, "That's what she said.");
+    ticonderoga.erase(dunderMifflin60LBS, 'said');
+    expect(ticonderoga.eraserDurability).toBe(296);
+});
