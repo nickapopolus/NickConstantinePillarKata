@@ -41,6 +41,10 @@ const supplies = {
             }
         };
         this.erase = (paper, deletion) => {
+            //find how many non-free characters are in the deleted string.
+            let deletedCharactersSelector = new RegExp('[\\n\\s]', 'g');
+            let deletedCharactersOnly = deletion.replace(deletedCharactersSelector, '');
+            this.eraserDurability = this.eraserDurability - deletedCharactersOnly.length;
             //make the blank string that will replace the deleted portion of the string.
             let blanks = [];
             for(var i = 0; i < deletion.length; i++){
