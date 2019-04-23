@@ -1,5 +1,5 @@
 const supplies = {
-    pencil: function Pencil(durability, length) {
+    pencil: function Pencil(durability, length, eraser) {
         this.write = (paper, writtenContent) => {
             //spaces tells us the number of free spaces to subtract from the wear on the pencil.
             let notFreeCharacters = new RegExp('[^[\\s\\n]', 'g');
@@ -33,6 +33,7 @@ const supplies = {
         this.durability = durability ? durability : 500;
         this.durabilityGrade = durability ? durability : 500;
         this.length = length ? length : 20;
+        this.eraserDurability = eraser ? eraser : 20;
         this.sharpen = () => {
             this.length--;
             if(this.length > 0) {

@@ -121,3 +121,8 @@ test('When the pencil is instructed to erase text from the paper, the last occur
     ticonderoga.erase(dunderMifflin60LBS, 'chuck');
     ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck       if a woodchuck could       wood?');
 });
+
+test('When a pencil is created, it can be provided with a value for eraser durability.', () => {
+    var ticonderoga = new supplies.pencil(100, 10, 300);
+    expect(ticonderoga.eraserDurability).toBe(300);
+});
