@@ -117,9 +117,9 @@ test('When the pencil is instructed to erase text from the paper, the last occur
     var dunderMifflin60LBS = new supplies.paper;
     ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?');
     ticonderoga.erase(dunderMifflin60LBS, 'chuck');
-    ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck chuck if a woodchuck could       wood?');
+    expect(dunderMifflin60LBS.content).toBe('How much wood would a woodchuck chuck if a woodchuck could       wood?');
     ticonderoga.erase(dunderMifflin60LBS, 'chuck');
-    ticonderoga.write(dunderMifflin60LBS, 'How much wood would a woodchuck       if a woodchuck could       wood?');
+    expect(dunderMifflin60LBS.content).toBe('How much wood would a woodchuck chuck if a wood      could       wood?');
 });
 
 test('When a pencil is created, it can be provided with a value for eraser durability.', () => {
@@ -138,7 +138,7 @@ test('All characters except for white space should degrade the eraser by a value
 test('Text should be erased in the opposite order it was written. Once the eraser durability is zero, the eraser is worn out and can no longer erase.', () => {
     var ticonderoga = new supplies.pencil(100, 10, 3);
     var dunderMifflin60LBS = new supplies.paper;
-    ticonderoga.write(dunderMifflin60LBS, "Buffalo Bill");
+    ticonderoga.write(dunderMifflin60LBS, 'Buffalo Bill');
     ticonderoga.erase(dunderMifflin60LBS, 'Buffalo Bill');
-    expect(dunderMifflin60LBS.content).toBe('Buffalo B   ');
+    expect(dunderMifflin60LBS.content).toBe("Buffalo B   ");
 });

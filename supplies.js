@@ -44,16 +44,31 @@ const supplies = {
             //find how many non-free characters are in the deleted string.
             let deletedCharactersSelector = new RegExp('[\\n\\s]', 'g');
             let deletedCharactersOnly = deletion.replace(deletedCharactersSelector, '');
+            let startingDurability = this.eraserDurability;
             this.eraserDurability = this.eraserDurability - deletedCharactersOnly.length;
+            //find erasure wear and reduce the erased characters by only that much.
+            if(this.eraserDurability < 0){
+              let shortenedDeletedChars = deletedCharactersOnly.substr(deletedCharactersOnly.length - startingDurability, deletedCharactersOnly.length);
+              let shortenedDeletedCharsArray = shortenedDeletedChars.split('');
+              for(let j = 0; j < shortenedDeletedCharsArray.length; j++){
+                  shortenedDeletedCharsArray[j] = shortenedDeletedCharsArray[j] + '\\s*';
+              }
+              let regExDel = shortenedDeletedCharsArray.join('');
+              //regExDel ='(' + regExDel + ')(?!.*' + regExDel + ')/g';
+               deletion = deletion.match(regExDel);
+               deletion = deletion.toString();
+            }
+
             //make the blank string that will replace the deleted portion of the string.
             let blanks = [];
-            for(var i = 0; i < deletion.length; i++){
+            for(let i = 0; i < deletion.length; i++){
                 blanks[i] = ' ';
             }
             let blankString = blanks.join('');
             //create a rejex that will match the last instance of the content to be deleted.
-            let lastInstanceRegex = new RegExp('(\\b' + deletion + '\\b)(?!.*\\b\\1\\b)', 'g');
-            paper.content.replace(lastInstanceRegex, blankString);
+            let deletionReg = '(' + deletion + ')(?!.*' + deletion + ')';
+            let lastInstanceRegex = new RegExp(deletionReg, 'g');
+            paper.content = paper.content.replace(lastInstanceRegex, blankString);
         };
     },
     paper: function Paper() {
