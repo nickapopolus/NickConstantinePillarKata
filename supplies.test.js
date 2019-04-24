@@ -151,3 +151,13 @@ test('Once text has been erased from the paper, a pencil may be instructed to wr
     ticonderoga.replaceSpace(dunderMifflin60LBS, 'onion');
     expect(dunderMifflin60LBS.content).toBe('An onion a day keeps the doctor away');
 });
+
+test('If the new text is longer than the allocated whitespace and thus would collide with other existing non-whitespace ' +
+    'characters on the page, these character collisions should be represented by the "@" character.', () => {
+    var ticonderoga = new supplies.pencil(100, 10, 100);
+    var dunderMifflin60LBS = new supplies.paper;
+    ticonderoga.write(dunderMifflin60LBS, 'An apple a day keeps the doctor away');
+    ticonderoga.erase(dunderMifflin60LBS, 'apple');
+    ticonderoga.replaceSpace(dunderMifflin60LBS, 'artichoke');
+    expect(dunderMifflin60LBS.content).toBe('An artich@k@ay keeps the doctor away');
+});

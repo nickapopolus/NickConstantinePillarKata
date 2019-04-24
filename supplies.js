@@ -78,7 +78,11 @@ const supplies = {
                 if(contentArray[i] === ' ' && contentArray[(i-1)] === ' '){
                     let k = i;
                     while(replacementArray[0]) {
-                        contentArray[k] = replacementArray[0];
+                        if(contentArray[k] !== ' '){
+                            contentArray[k] = '@';
+                        } else {
+                            contentArray[k] = replacementArray[0];
+                        }
                         k++;
                         replacementArray.shift();
                     }
