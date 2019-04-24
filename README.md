@@ -25,7 +25,10 @@ supplies.test.js holds all my tests.
 I tried to commit after each failed test and after each passed test
 to show you my best understanding of TDD as it is. This is my first time using TDD and I thought it was very
 cool, but I am definitely not a master, so I'm looking forward to your feedback on how I did with it and
-how I can improve. Also, those last few components of the Kata were very tricky. It was really fun to figure out
+how I can improve. I had a few questions about TDD along the way. Some of them I left in the comments but
+I am really looking forward to talking about it. 
+
+Also, those last few components of the Kata were very tricky.It was really fun to figure out
 and I'm looking forward to the Artisan to fill me in on any secret Artisan magic to clean that portion up. 
 
 Thank you for your time to check this out. 
