@@ -70,6 +70,22 @@ const supplies = {
             let lastInstanceRegex = new RegExp(deletionReg, 'g');
             paper.content = paper.content.replace(lastInstanceRegex, blankString);
         };
+        this.replaceSpace = (paper, replacementString) => {
+          //  find the first set of extra spaces and replace with string
+            let contentArray = paper.content.split('');
+            let replacementArray = replacementString.split('');
+            for(let i = 0; i < contentArray.length; i++){
+                if(contentArray[i] === ' ' && contentArray[(i-1)] === ' '){
+                    let k = i;
+                    while(replacementArray[0]) {
+                        contentArray[k] = replacementArray[0];
+                        k++;
+                        replacementArray.shift();
+                    }
+                }
+                paper.content = contentArray.join('');
+            }
+        };
     },
     paper: function Paper() {
         this.content;
